@@ -21,6 +21,7 @@ public class broom : MonoBehaviour
         if ( Input.GetKey("down")) {  transform.Translate(0 , -0.1f, 0);  }
         // 按住 下鍵 時，物件每個 frame 朝自身 X 軸方向移動 -0.1 公尺
 
+
         if ( Input.GetKey("left")) {  transform.Rotate( 0.3f, 0, 0);  }
         // 按住 左鍵 時，物件每個 frame 以自身 y 軸為軸心旋轉 -3 度
 
