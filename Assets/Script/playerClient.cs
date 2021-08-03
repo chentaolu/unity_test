@@ -8,15 +8,16 @@ using System.Threading;
 
 public class playerClient : MonoBehaviour
 {
-    Socket serverSocket;
+    
+    public static Socket serverSocket;
     IPAddress ip;
-    IPEndPoint ipEnd;
+    public static IPEndPoint ipEnd;
     string recvString;
     string sendString;
     byte[] recvData = new byte[1024];
-    byte[] sendData = new byte[1024];
+    public static byte[] sendData = new byte[1024];
     int recvLen;
-    Thread connectThread;
+    public static Thread connectThread;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +48,8 @@ public class playerClient : MonoBehaviour
 
     }
 
-    void SocketConnect()
-    {
+    public static void SocketConnect()
+    {   
         if (serverSocket != null)
         {
             serverSocket.Close();
@@ -59,7 +60,7 @@ public class playerClient : MonoBehaviour
 
     }
 
-    void SocketSend(string sendStr)
+    public static void SocketSend(string sendStr)
     {
         //清空傳送快取
         sendData = new byte[1024];
@@ -70,7 +71,7 @@ public class playerClient : MonoBehaviour
     }
 
 
-    void SocketQuit()
+    public static void SocketQuit()
     {
         //關閉執行緒
         if (connectThread != null)

@@ -26,7 +26,7 @@ public class broom : MonoBehaviour
 
         if ( Input.GetKey("right")) {  transform.Rotate(0, 0.5f, 0);  }        
 
-        if ( Input.GetKey("z")) {  transform.Translate(0, 1f, 0);  }
+        if ( Input.GetKey("z")) {  transform.Translate(0, 3f, 0);  }
 
         if ( Input.GetKey("x")) {  transform.Translate(0 , -1f, 0);  }
         
