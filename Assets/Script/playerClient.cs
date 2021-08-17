@@ -8,7 +8,7 @@ using System.Threading;
 
 public class playerClient : MonoBehaviour
 {
-    
+    public static bool isLogin = false;
     public static Socket serverSocket;
     IPAddress ip;
     public static IPEndPoint ipEnd;
@@ -22,7 +22,11 @@ public class playerClient : MonoBehaviour
     void Start()
     {
         Debug.Log("hello world!");
-        initSocket();
+        if (!isLogin){
+            initSocket();
+            isLogin = true;
+        }          
+        
     }
 
     // Update is called once per frame
@@ -34,10 +38,14 @@ public class playerClient : MonoBehaviour
     void initSocket()
     {
         try
-        {
+        {   
+            if (!IPAddress.TryParse ("0.tcp.ap.ngrok.io", out ip))
+                ip = Dns.GetHostEntry ("0.tcp.ap.ngrok.io").AddressList[0];
+            ipEnd = new IPEndPoint(ip, 13800);
             //server_ip_port
-            ip = IPAddress.Parse("127.0.0.1");
-            ipEnd = new IPEndPoint(ip, 1278);
+           /* ip = IPAddress.Parse("0.tcp.ap.ngrok.io".Text);
+            print(ip);
+            ipEnd = new IPEndPoint(ip, 13800);*/
             SocketConnect();
             SocketSend("{'component': 'player'}\n");
         } 
