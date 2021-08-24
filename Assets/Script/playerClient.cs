@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Net;
@@ -41,7 +41,7 @@ public class playerClient : MonoBehaviour
         {   
             if (!IPAddress.TryParse ("0.tcp.ap.ngrok.io", out ip))
                 ip = Dns.GetHostEntry ("0.tcp.ap.ngrok.io").AddressList[0];
-            ipEnd = new IPEndPoint(ip, 13800);
+            ipEnd = new IPEndPoint(ip, 11970);
             //server_ip_port
            /* ip = IPAddress.Parse("0.tcp.ap.ngrok.io".Text);
             print(ip);

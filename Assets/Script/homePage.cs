@@ -34,6 +34,10 @@ public class homePage : MonoBehaviour
         SceneManager.LoadScene("chooseGameMode");
     }
 
+    public void Map1() {
+        SceneManager.LoadScene("Map1");
+    }
+
     public void quitGame() {
         Application.Quit();
     }
